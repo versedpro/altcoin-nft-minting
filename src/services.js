@@ -23,6 +23,18 @@ export const initWeb3Onboard = init({
       rpcUrl:
         'https://eth-goerli.g.alchemy.com/v2/PnVem01ekyMVFVPPwGj-8_zgAeAC5u--'
       //rpcUrl: `https://mainnet.infura.io/v3/${INFURA_ID}`
+    },
+    {
+      id: '0xa4b1',
+      token: 'ETH',
+      label: 'Arbitrum One',
+      rpcUrl: `https://arb1.arbitrum.io/rpc`
+    },
+    {
+      id: '0x89',
+      token: 'MATIC',
+      label: 'Polygon',
+      rpcUrl: 'https://matic-mainnet.chainstacklabs.com'
     }
   ],
   appMetadata: {

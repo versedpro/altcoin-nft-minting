@@ -17,7 +17,7 @@ import {
 import './App.css'
 import lottie from './coin.json'
 
-const NFTAddress = '0xC5D5e68Fdf27780805F743c8f6FD5fF7a9D5E0B3'
+const NFTAddress = '0x40787bD1dd0097fA118D0D6C060Df5bAc1Ebb468'
 function LinearProgressWithLabel(props) {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
@@ -111,7 +111,6 @@ function MintPage() {
         totalSupply: totalSupply,
         maxSupply: maxSupply
       }
-      console.log(object)
       setData(object)
       setLoading(false)
     } catch (err) {
@@ -198,7 +197,7 @@ function MintPage() {
   }
 
   const switchNetworkETH = async () => {
-    await setChain({ chainId: '0x5' })
+    await setChain({ chainId: '0xa4b1' })
   }
   useEffect(() => {
     function setScreenHeight() {
@@ -233,17 +232,17 @@ function MintPage() {
                   </button>
                 </>
               )}
-              {wallet && connectedChain.id === '0x5' && loading && (
+              {wallet && connectedChain.id === '0xa4b1' && loading && (
                 <h2 className="loadingcolor">Loading...</h2>
               )}
-              {wallet && connectedChain.id !== '0x5' && (
+              {wallet && connectedChain.id !== '0xa4b1' && (
                 <div className="buttonswitch" onClick={switchNetworkETH}>
-                  <h2>Switch to Ethereum Mainnet</h2>
+                  <h2>Switch to Arbitrum One Mainnet</h2>
                   <img src="/assets/eth.svg" className="buttonlogo" alt="" />
                 </div>
               )}
 
-              {!loading && wallet && connectedChain.id === '0x5' && (
+              {!loading && wallet && connectedChain.id === '0xa4b1' && (
                 <>
                   {data.phaseNumber === '0' && data.whitelisted === 'false' && (
                     <h2 className="whitelist">
@@ -304,7 +303,7 @@ function MintPage() {
             <div className="line"></div>
             <div className="lottie part">
               <Lottie className="lottie" loop animationData={lottie} play />
-              {!loading && wallet && connectedChain.id === '0x5' && (
+              {!loading && wallet && connectedChain.id === '0xa4b1' && (
                 <>
                   <div className="progress">
                     <h3 className="minted">
@@ -318,9 +317,12 @@ function MintPage() {
                       )}{' '}
                       (
                       {Math.round(
-                        (data.totalSupply.toString() * 100) /
-                          data.maxSupply.toString()
-                      ) + '%'}
+                        ((data.totalSupply.toString() * 100) /
+                          data.maxSupply.toString()) *
+                          100
+                      ) /
+                        100 +
+                        '%'}
                       )
                     </h3>
                     <Box sx={{ width: '100%', height: '60px' }}>

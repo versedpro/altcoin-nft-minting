@@ -1,5 +1,5 @@
 const networkEnum = Object.freeze({
-  '0x1': 'Ethereum Main',
+  '0xa4b1': 'Arbitrum One',
 
   localhost: 'localhost'
 })
